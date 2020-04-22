@@ -27,7 +27,6 @@ import "./flightsurety.css";
         flightTimestamp,
         amount,
         (error, result) => {
-          console.log(result, error);
           display("Insurance", "Purchase insurance", [
             {
               label: "Bought",
@@ -41,25 +40,33 @@ import "./flightsurety.css";
 
     // User-submitted transaction
     DOM.elid("submit-oracle").addEventListener("click", () => {
-      let flight = DOM.elid("flight-number").value;
+      let flightAddress = DOM.elid("oracle-airline-address").value;
+      let flightName = DOM.elid("oracle-airline-name").value;
+      let flightTimestamp = DOM.elid("oracle-airline-timestamp").value;
+
       // Write transaction
-      contract.fetchFlightStatus(flight, (error, result) => {
-        display("Oracles", "Trigger oracles", [
-          {
-            label: "Fetch Flight Status",
-            error: error,
-            value: result.flight + " " + result.timestamp,
-          },
-        ]);
-      });
+      contract.fetchFlightStatus(
+        flightAddress,
+        flightName,
+        flightTimestamp,
+        (error, result) => {
+          display("Oracles", "Trigger oracles", [
+            {
+              label: "Fetch Flight Status",
+              error: error,
+              value: result.flight + " " + result.timestamp,
+            },
+          ]);
+        }
+      );
     });
 
     // Withdraw
     DOM.elid("withdraw").addEventListener("click", () => {
-      contract.fetchFlightStatus(flight, (error, result) => {
-        display("Oracles", "Trigger oracles", [
+      contract.withdraw((error, result) => {
+        display("Balance transfer", "Withdraw Funds", [
           {
-            label: "Fetch Flight Status",
+            label: "Passenger withdrew funds",
             error: error,
             value: result.flight + " " + result.timestamp,
           },

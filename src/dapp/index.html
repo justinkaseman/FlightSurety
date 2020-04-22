@@ -33,7 +33,7 @@
     <main class="container">
       <div
         id="display-wrapper"
-        class="top-20 d-flex justify-content-center"
+        class="top-20 d-flex justify-content-center flex-column"
       ></div>
       <div class="row top-20">
         <div>Flight Table:</div>
@@ -87,9 +87,21 @@
       </div>
       <div class="break"></div>
       <div class="row top-20">
-        <label class="form">Flight</label>
-        <input type="text" id="flight-number" />
-        <btn class="btn btn-primary" id="submit-oracle">Submit to Oracles</btn>
+        <div class="row top-20">
+          <label class="form">Airline</label>
+          <input
+            type="text"
+            id="oracle-airline-address"
+            placeholder="Account address"
+          />
+          <label class="form">Flight</label>
+          <input type="text" id="oracle-airline-name" placeholder="e.g. 9032" />
+          <label class="form">Timestamp</label>
+          <input type="text" id="oracle-airline-timestamp" />
+          <btn class="btn btn-primary" id="submit-oracle"
+            >Submit to Oracles</btn
+          >
+        </div>
       </div>
       <div class="break"></div>
       <div class="row top-20 d-flex justify-content-center">
