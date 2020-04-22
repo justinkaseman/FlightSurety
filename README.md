@@ -5,7 +5,7 @@ FlightSurety is a sample application project for Udacity's Blockchain course.
 ## Getting Started Locally
 
 1. Run `npm install` in the project directory
-2. Run `ganache-cli -m "apple elevator enjoy audit little market slam siren rookie slide alone great"` to start a local blockchain server.
+2. Run `ganache-cli -a 50 -m "apple elevator enjoy audit little market slam siren rookie slide alone great"` to start a local blockchain server.
 3. Open a new terminal and run `truffle migrate` to compile and deploy.
 
 To use the dapp:
