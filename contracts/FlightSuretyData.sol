@@ -321,15 +321,11 @@ contract FlightSuretyData {
             status == false,
             "This passenger has already bought insurance for this flight!"
         );
-
         bytes32 flightKey = getFlightKey(airline, flight, timestamp);
 
-        Insurance memory insurance = Insurance({
-            passenger: sender,
-            pricePaid: value
-        });
-
-        insurances[flightKey].push(insurance);
+        insurances[flightKey].push(
+            Insurance({passenger: sender, pricePaid: value})
+        );
     }
 
     /**
