@@ -83,8 +83,6 @@ contract FlightSuretyApp {
         data = FlightSuretyData(dataContract);
     }
 
-    event Test(bool success);
-
     /********************************************************************************************/
     /*                                       UTILITY FUNCTIONS                                  */
     /********************************************************************************************/
@@ -138,8 +136,7 @@ contract FlightSuretyApp {
             msg.value <= INSUREE_MAX_INSURANCE,
             "1 Ether is the max supported insurance value"
         );
-        emit Test(true);
-        // data.buy(airline, flight, timestamp, msg.sender, msg.value);
+        data.buy(airline, flight, timestamp, msg.sender, msg.value);
         return msg.value;
     }
 
